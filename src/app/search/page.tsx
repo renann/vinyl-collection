@@ -89,7 +89,7 @@ export default function SearchPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative aspect-square">
                 <Image
-                  src={searchResult.coverUrl}
+                  src={searchResult.coverImage}
                   alt={`${searchResult.artist} - ${searchResult.title}`}
                   fill
                   className="object-cover"
@@ -98,14 +98,32 @@ export default function SearchPage() {
               
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-2">{searchResult.title}</h2>
-                <p className="text-gray-600 mb-4">{searchResult.artist}</p>
-                <p className="text-sm text-gray-500 mb-6">{searchResult.year}</p>
+                <p className="text-xl text-gray-600 mb-4">{searchResult.artist}</p>
                 
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div>
+                    <p className="text-sm text-gray-500">Year</p>
+                    <p className="font-medium">{searchResult.year}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Genre</p>
+                    <p className="font-medium">{searchResult.genre.join(', ')}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Format</p>
+                    <p className="font-medium">{searchResult.format}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Label</p>
+                    <p className="font-medium">{searchResult.label}</p>
+                  </div>
+                </div>
+
                 <button
                   onClick={handleSave}
                   className="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
                 >
-                  Save to Collection
+                  Add to Collection
                 </button>
               </div>
             </div>
