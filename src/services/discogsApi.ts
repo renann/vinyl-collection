@@ -22,10 +22,16 @@ export async function fetchVinylFromDiscogs(id: string): Promise<Vinyl | null> {
       title: data.title,
       artist: data.artist,
       year: data.year,
-      genre: data.genre[0] || 'Unknown',
+      genre: data.genre || ['Unknown'],
       label: data.label[0] || 'Unknown',
-      coverUrl: data.images[0]?.uri || '',
-      tracklist: data.tracklist.map(track => `${track.position}. ${track.title}`)
+      coverImage: data.images[0]?.uri || '',
+      format: 'Vinyl',
+      condition: 'Near Mint',
+      tracklist: data.tracklist.map(track => ({
+        position: track.position,
+        title: track.title,
+        duration: '0:00' // Default duration since Discogs API doesn't provide it
+      }))
     };
   } catch (error) {
     console.error('Error fetching vinyl:', error);
