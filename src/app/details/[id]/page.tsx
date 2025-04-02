@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { getVinylById, updateVinyl, deleteVinyl } from '@/services/storage';
-import { Vinyl } from '@/types/vinyl';
+import { getVinylById, updateVinyl, deleteVinyl } from '../../../services/storage';
+import { Vinyl } from '../../../types/vinyl';
 
 interface DetailsPageProps {
   params: {
