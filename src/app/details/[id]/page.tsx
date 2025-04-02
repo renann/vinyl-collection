@@ -85,7 +85,7 @@ export default function DetailsPage({ params }: DetailsPageProps) {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative aspect-square">
               <Image
-                src={vinyl.coverUrl}
+                src={vinyl.coverImage}
                 alt={`${vinyl.artist} - ${vinyl.title}`}
                 fill
                 className="object-cover"
@@ -103,23 +103,32 @@ export default function DetailsPage({ params }: DetailsPageProps) {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Genre</p>
-                  <p className="font-medium">{vinyl.genre}</p>
+                  <p className="font-medium">{vinyl.genre.join(', ')}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Format</p>
+                  <p className="font-medium">{vinyl.format}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Label</p>
                   <p className="font-medium">{vinyl.label}</p>
                 </div>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Tracklist</h3>
-                <ul className="space-y-1">
-                  {vinyl.tracklist.map((track, index) => (
-                    <li key={index} className="text-gray-600">
-                      {track}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <p className="text-sm text-gray-500">Condition</p>
+                  <p className="font-medium">{vinyl.condition}</p>
+                </div>
+                {vinyl.purchaseDate && (
+                  <div>
+                    <p className="text-sm text-gray-500">Purchase Date</p>
+                    <p className="font-medium">{vinyl.purchaseDate}</p>
+                  </div>
+                )}
+                {vinyl.purchasePrice && (
+                  <div>
+                    <p className="text-sm text-gray-500">Purchase Price</p>
+                    <p className="font-medium">${vinyl.purchasePrice}</p>
+                  </div>
+                )}
               </div>
 
               <div className="mb-6">
@@ -129,17 +138,19 @@ export default function DetailsPage({ params }: DetailsPageProps) {
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   rows={4}
                 />
               </div>
 
-              <button
-                onClick={handleSave}
-                className="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-              >
-                Save Changes
-              </button>
+              <div className="flex justify-end">
+                <button
+                  onClick={handleSave}
+                  className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  Save Changes
+                </button>
+              </div>
             </div>
           </div>
         </div>
