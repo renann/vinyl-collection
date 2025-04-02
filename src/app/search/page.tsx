@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { fetchVinylFromDiscogs } from '@/services/discogsApi';
-import { saveVinyl } from '../../../services/storage';
+import { saveVinyl } from '@/services/storage';
 import { Vinyl } from '@/types/vinyl';
 
 export default function SearchPage() {
