@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vinyl My Collection</string>
+    <string name="search_hint">Enter Discogs ID</string>
+    <string name="search_button">Search</string>
+    <string name="back_button">Back</string>
+    <string name="add_vinyl">Add Vinyl</string>
+    <string name="collection_title">My Collection</string>
+    <string name="no_vinyls">No vinyls in your collection</string>
+    <string name="error_loading">Error loading vinyl information</string>
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="genre_label">Genre</string>
+    <string name="year_label">Year</string>
+    <string name="label_label">Label</string>
+    <string name="tracklist_label">Tracklist</string>
+    <string name="notes_label">Notes</string>
+    <string name="save_button">Save</string>
+    <string name="delete_button">Delete</string>
+</resources> 
