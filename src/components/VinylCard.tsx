@@ -14,7 +14,7 @@ export default function VinylCard({ vinyl, onClick }: VinylCardProps) {
     >
       <div className="relative aspect-square">
         <Image
-          src={vinyl.coverUrl}
+          src={vinyl.coverImage}
           alt={`${vinyl.artist} - ${vinyl.title}`}
           fill
           className="object-cover"
